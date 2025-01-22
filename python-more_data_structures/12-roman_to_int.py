@@ -6,6 +6,8 @@ def roman_to_int(roman_string):
     previous_cursor = 0
     sum = 0
     for char in roman_string[::-1]:
+        if char not in roman_string:
+            return
         cursor = romans[char]
         if cursor < previous_cursor:
             sum -= cursor
