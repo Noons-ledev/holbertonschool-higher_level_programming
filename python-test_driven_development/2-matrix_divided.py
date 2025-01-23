@@ -1,5 +1,17 @@
 #!/usr/bin/python3
+"""
+This module helps dividing a matrix
+which would contain only integers of floats
+Errors are handled and raised in the code
+"""
+
+
 def matrix_divided(matrix, div):
+    """
+    Checking issuing cases to avoid errors and prevent them
+    Then perform the operation
+    return new matrix
+    """
     check = True
     Same_len = True
     if div == 0:
@@ -12,8 +24,8 @@ def matrix_divided(matrix, div):
             if not isinstance(a, (int, float)):
                 check = False
     if not check:
-        raise TypeError("matrix must be a matrix (list of lists) "\
-           "of integers/floats")
+        raise TypeError("matrix must be a matrix (list of lists) "
+                        "of integers/floats")
     if not Same_len:
         raise TypeError("Each row of the matrix must have the same size")
     if not isinstance(div, (int, float)):
