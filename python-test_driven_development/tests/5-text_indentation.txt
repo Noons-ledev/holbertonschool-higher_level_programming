@@ -1,0 +1,16 @@
+>>> import importlib.util
+>>> module_name = '5-text_indentation'
+>>> file_path = './5-text_indentation.py'
+>>> spec = importlib.util.spec_from_file_location(module_name, file_path)
+>>> module = importlib.util.module_from_spec(spec)
+>>> spec.loader.exec_module(module)
+>>> text_indentation = module.text_indentation
+
+>>> text_indentation("Hello.")
+Hello.
+<BLANKLINE>
+>>> text_indentation(1234)
+Traceback (most recent call last):
+    ... 
+TypeError: text must be a string
+
