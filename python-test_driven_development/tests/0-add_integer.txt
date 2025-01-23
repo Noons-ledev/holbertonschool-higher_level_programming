@@ -31,6 +31,6 @@ TypeError: add_integer() missing 1 required positional argument: 'a'
 >>> add_integer(float("NaN"), 1)
 Traceback (most recent call last):
     ...
-ValueError: a cannot be NaN
+ValueError: cannot convert float NaN to integer
 >>> add_integer(1)
 99
