@@ -1,0 +1,26 @@
+>>> import importlib.util
+>>> module_name = '4-print_square'
+>>> file_path = './4-print_square.py'
+>>> spec = importlib.util.spec_from_file_location(module_name, file_path)
+>>> module = importlib.util.module_from_spec(spec)
+>>> spec.loader.exec_module(module)
+>>> print_square = module.print_square
+
+>>> print_square(4)
+####
+####
+####
+####
+>>> print_square(-1)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+>>> print_square(0)
+>>> print_square('a')
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+>>> print_square(-2.4)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
