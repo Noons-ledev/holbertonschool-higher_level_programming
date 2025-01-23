@@ -1,0 +1,22 @@
+>>> import importlib.util
+>>> module_name = '3-say_my_name'
+>>> file_path = './3-say_my_name.py'
+>>> spec = importlib.util.spec_from_file_location(module_name, file_path)
+>>> module = importlib.util.module_from_spec(spec)
+>>> spec.loader.exec_module(module)
+>>> say_my_name = module.say_my_name
+
+>>> say_my_name()
+Traceback (most recent call last):
+    ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+>>> say_my_name("John", "Doe")
+My name is John Doe
+>>> say_my_name(12, "Hello")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+>>> say_my_name(3, 2)
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
