@@ -13,11 +13,14 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     Marks = ".?:"
-    for i in range(len(text)):
+    i = 0
+    while i < len(text):
         if text[i] in Marks:
             print(text[i])
-            if i + 1 < len(text) and text[i + 1] == " ":
-                i += 1
             print()
+            i += 1
+            while i < len(text) and text[i] == " ":
+                i += 1
         else:
             print(text[i], end="")
+            i += 1
