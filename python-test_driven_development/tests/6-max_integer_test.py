@@ -20,6 +20,15 @@ class TestMaxInteger(unittest.TestCase):
         with self.assertRaises(TypeError):
             max_integer([1, 2, 'three', 4])
 
+    def test_single_element(self):
+        self.assertEqual(max_integer([42]), 42)
+
+    def test_empty_list(self):
+        self.assertIsNone(max_integer([]))
+
+    def test_max_in_middle(self):
+        self.assertEqual(max_integer([1, 3, 7, 3, 1]), 7)
+
 
 if __name__ == "__main__":
     unittest.main()
