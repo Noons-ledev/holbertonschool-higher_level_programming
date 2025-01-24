@@ -14,8 +14,10 @@ def text_indentation(text):
         raise TypeError("text must be a string")
     Marks = ".?:"
     for i in range(len(text)):
-        if text[i] not in Marks:
-            print(text[i], end="")
-        else:
+        if text[i] in Marks:
             print(text[i])
+            if i + 1 < len(text) and text[i + 1] == " ":
+                i += 1
             print()
+        else:
+            print(text[i], end="")
