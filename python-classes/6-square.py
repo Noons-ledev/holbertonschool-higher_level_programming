@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
 This module defines a class
+and the methods that can be used by its attributes
 """
 
 
@@ -32,8 +33,7 @@ class Square:
         """
         This method will return the area of a square
         """
-        self.aera = self.__size * self.__size
-        return self.aera
+        return self.__size ** 2
 
     @property
     def size(self):
