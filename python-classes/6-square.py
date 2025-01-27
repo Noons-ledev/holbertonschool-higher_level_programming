@@ -59,7 +59,7 @@ class Square:
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
@@ -69,8 +69,8 @@ class Square:
         This method is used to set
         square's position on another value
         """
-        if not isinstance(value, tuple) or\
-            not all(isinstance(element, int) for element in value)\
+        if not isinstance(value, tuple) or len(value) != 2\
+            or not all(isinstance(element, int) for element in value)\
                 or not all(element >= 0 for element in value):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
