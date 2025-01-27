@@ -80,11 +80,11 @@ class Square:
         This method will print a square of #
         depending on its size
         """
-        for x in range(self.__position[1]):
-            print()
         if self.__size == 0:
             print()
         else:
+            for x in range(self.__position[1]):
+                print()
             for i in range(self.__size):
                 print(" " * self.__position[0], end="")
                 print("#" * self.__size)
