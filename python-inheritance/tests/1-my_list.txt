@@ -34,3 +34,8 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 >>> my_list_single = MyList([10])
 >>> my_list_single.print_sorted()
 [10]
+>>> mydict = {}
+>>> mydict.print_sorted()
+Traceback (most recent call last):
+...
+AttributeError: 'dict' object has no attribute 'print_sorted'
