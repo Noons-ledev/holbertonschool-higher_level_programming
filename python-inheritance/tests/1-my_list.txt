@@ -17,3 +17,6 @@
 Traceback (most recent call last):
  ...
 TypeError: '<' not supported between instances of 'int' and 'str'
+>>> mylist3 = my_list([3, 1, 4, 4, 2, 1])
+>>> mylist3.print_sorted()
+[1, 1, 2, 3, 4, 4]
