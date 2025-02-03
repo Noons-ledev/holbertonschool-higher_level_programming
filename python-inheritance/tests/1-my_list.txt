@@ -1,0 +1,19 @@
+>>> import importlib.util
+>>> module_name = '1-my_list'
+>>> file_path = './1-my_list.py'
+>>> spec = importlib.util.spec_from_file_location(module_name, file_path)
+>>> module = importlib.util.module_from_spec(spec)
+>>> spec.loader.exec_module(module)
+>>> my_list = module.MyList
+
+>>> mylist = my_list([1, 4, 7])
+>>> mylist.print_sorted()
+[1, 4, 7]
+>>> mylist1 = my_list()
+>>> mylist1.print_sorted()
+[]
+>>> mylist2 = my_list(["Hello", 2, 6])
+>>> mylist2.print_sorted()
+Traceback (most recent call last):
+ ...
+TypeError: '<' not supported between instances of 'int' and 'str'
