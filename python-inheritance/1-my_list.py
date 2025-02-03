@@ -15,4 +15,7 @@ class MyList(list):
         """
         prints the sorted version of the object
         """
-        print(sorted(self))
+        if not isinstance(self, list):
+            raise AttributeError("instance must be a list")
+        else:
+            print(sorted(self))
