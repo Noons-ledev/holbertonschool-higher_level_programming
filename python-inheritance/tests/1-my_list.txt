@@ -1,3 +1,6 @@
+"""
+Test cases for my method
+"""
 >>> my_list = __import__('1-my_list').MyList
 
 >>> mylist = my_list([1, 4, 7])
