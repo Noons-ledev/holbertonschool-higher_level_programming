@@ -39,3 +39,6 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 Traceback (most recent call last):
 ...
 AttributeError: 'dict' object has no attribute 'print_sorted'
+>>> my_list_large = MyList([10**10, -10**10, 5, 100])
+>>> my_list_large.print_sorted() 
+[-10000000000, 5, 100, 10000000000]
