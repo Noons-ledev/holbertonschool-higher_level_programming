@@ -31,3 +31,6 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 >>> myemptylist = MyList()
 >>> myemptylist.print_sorted()
 []
+>>> my_list_single = MyList([10])
+>>> my_list_single.print_sorted()
+[10]
