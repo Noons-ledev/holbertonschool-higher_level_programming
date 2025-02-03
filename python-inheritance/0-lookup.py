@@ -2,6 +2,8 @@
 """
 This module implements the lookup function
 """
+
+
 def lookup(obj):
     """
     This function will return
