@@ -1,19 +1,21 @@
 """
 Test cases for my method
 """
->>> my_list = __import__('1-my_list').MyList
-
->>> mylist = my_list([1, 4, 7])
->>> mylist.print_sorted()
-[1, 4, 7]
->>> mylist1 = my_list()
->>> mylist1.print_sorted()
-[]
->>> mylist2 = my_list(["Hello", 2, 6])
->>> mylist2.print_sorted()
-Traceback (most recent call last):
- ...
-TypeError: '<' not supported between instances of 'int' and 'str'
->>> mylist3 = my_list([3, 1, 4, 4, 2, 1])
->>> mylist3.print_sorted()
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
+>>> my_list.append(3)
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(1)
+>>> print(my_list)
+[3, 1, 4, 4, 2, 1]
+>>> my_list.print_sorted()
 [1, 1, 2, 3, 4, 4]
+>>> my_list.append("Hello")
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: '<' not supported between instances of 'str' and 'int'
+
