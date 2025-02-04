@@ -24,7 +24,9 @@ class BaseGeometry:
         """
         This method will validate value if conditions are respected
         """
-        if not isinstance(value, int):
+        if isinstance(value, bool):
+            raise TypeError(f"{name} must be an integer")
+        elif not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         elif value <= 0:
             raise ValueError(f"{name} must be greater than 0")
