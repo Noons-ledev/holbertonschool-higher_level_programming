@@ -20,10 +20,10 @@ class CountedIterator:
     def __next__(self):
         try:
             item = next(self.iterator)
+            self.counter += 1
+            return item
         except StopIteration:
             raise StopIteration
-        self.counter += 1
-        return item
 
     def __iter__(self):
-        return self
+        return self.iterator
