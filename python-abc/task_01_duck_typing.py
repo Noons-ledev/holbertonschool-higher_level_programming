@@ -35,7 +35,7 @@ class Circle(Shape):
     def __init__(self, radius=0):
         if not isinstance(radius, (int, float)):
             raise TypeError("Radius must be a number")
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         return (math.pi * (self.radius**2))
