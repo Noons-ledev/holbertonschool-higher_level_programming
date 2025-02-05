@@ -13,7 +13,6 @@ class CountedIterator:
             raise ValueError("Missing Argument")
         self.iterator = iter(iterable)
         self.counter = 0
-        self.iterable = iterable
 
     def get_count(self):
         return self.counter
@@ -25,3 +24,6 @@ class CountedIterator:
             raise StopIteration
         self.counter += 1
         return item
+
+    def __iter__(self):
+        return self
