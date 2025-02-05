@@ -54,7 +54,10 @@ class Rectangle(Shape):
 
 
 def shape_info(forme):
-    area = forme.area()
-    perimeter = forme.perimeter()
-    print("Area: {}".format(area))
-    print("Perimeter: {}".format(perimeter))
+    if hasattr(forme, 'area') and hasattr(forme, 'perimeter'):
+        area = forme.area()
+        perimeter = forme.perimeter()
+        print("Area: {}".format(area))
+        print("Perimeter: {}".format(perimeter))
+    else:
+        raise AttributeError("No such attribute")
