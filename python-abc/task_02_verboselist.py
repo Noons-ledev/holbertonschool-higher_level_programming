@@ -27,6 +27,8 @@ class VerboseList(list):
         """
         method doc here
         """
+        if item not in self:
+            raise ValueError("Can't find this value in this instance")
         print(f"Removed [{item}] from the list.")
         super().remove(item)
 
