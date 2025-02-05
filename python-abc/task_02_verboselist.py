@@ -39,4 +39,5 @@ class VerboseList(list):
         if self[item] is None:
             raise IndexError("Index does not exist")
         print(f"Popped [{self[item]}] from the list.")
-        super().pop(item)
+        retour = super().pop(item)
+        return retour
