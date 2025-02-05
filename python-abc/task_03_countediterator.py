@@ -9,8 +9,6 @@ class CountedIterator:
     Class documentation
     """
     def __init__(self, iterable):
-        if iterable is None:
-            raise ValueError("Missing Argument")
         self.iterator = iter(iterable)
         self.counter = 0
 
