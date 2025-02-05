@@ -23,4 +23,4 @@ class CountedIterator:
             self.counter += 1
             return item
         except StopIteration:
-            raise StopIteration
+            return
