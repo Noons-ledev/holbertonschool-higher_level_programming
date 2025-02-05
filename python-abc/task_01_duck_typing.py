@@ -15,10 +15,16 @@ class Shape(ABC):
     """
     @abstractmethod
     def area(self):
+        """
+        method doc
+        """
         pass
 
     @abstractmethod
     def perimeter(self):
+        """
+        method doc
+        """
         pass
 
 
