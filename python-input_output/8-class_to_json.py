@@ -8,4 +8,4 @@ def class_to_json(obj):
     """
     Function doc
     """
-    return dict(obj)
+    return vars(obj)
