@@ -2,7 +2,8 @@
 """
 Module Documenation
 """
-import sys, json
+import sys
+import json
 """
 Handling arguments
 """
@@ -19,7 +20,6 @@ try:
     mylist = list(load_from_json_file(filename))
 except Exception:
     mylist = []
-
 if len(sys.argv) > 1:
     for i in range(1, len(sys.argv)):
         mylist.append(sys.argv[i])
