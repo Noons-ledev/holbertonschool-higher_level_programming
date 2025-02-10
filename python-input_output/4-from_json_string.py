@@ -12,5 +12,5 @@ def from_json_string(my_str):
     """
     Function doc
     """
-    it = json.load(my_str)
+    it = json.loads(my_str)
     return it
