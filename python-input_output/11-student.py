@@ -35,3 +35,4 @@ class Student:
         """
         for key in json:
             setattr(self, key, json[key])
+
