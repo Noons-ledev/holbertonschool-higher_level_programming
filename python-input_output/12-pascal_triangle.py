@@ -8,6 +8,8 @@ def pascal_triangle(n):
     """
     Class documentation
     """
+    if n <= 0:
+        return []
     matrix = []
     matrix.append([1])
     for i in range(1, n):
