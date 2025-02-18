@@ -1,0 +1,45 @@
+🌐 Difference Between HTTP and HTTPS
+Feature	HTTP (HyperText Transfer Protocol)	HTTPS (HyperText Transfer Protocol Secure)
+Security	No encryption, vulnerable to attacks	Uses SSL/TLS encryption for secure communication
+Data Protection	Data is sent in plaintext, easily intercepted	Data is encrypted, preventing eavesdropping
+Port	Uses port 80	Uses port 443
+SEO & Trust	Less trusted by users and browsers	Preferred for SEO, marked as secure in browsers
+Use Cases	Suitable for public websites with no sensitive data	Used for banking, e-commerce, and login pages
+📩 Basic Structure of HTTP Requests and Responses
+1️⃣ HTTP Request
+An HTTP request consists of:
+
+Request Line: Specifies the HTTP method, resource URL, and HTTP version (e.g., GET /index.html HTTP/1.1).
+Headers: Provides additional information (e.g., User-Agent, Content-Type).
+Body: Contains data for methods like POST and PUT.
+
+2️⃣ HTTP Response
+An HTTP response consists of:
+
+Status Line: Contains the HTTP version, status code, and status message (e.g., HTTP/1.1 200 OK).
+Headers: Metadata like Content-Type, Date, etc.
+Body: The actual content (HTML, JSON, etc.).
+
+🔥 Common HTTP Methods
+Method	Description
+GET	Retrieves data from a server (e.g., loading a webpage).
+POST	Sends data to the server (e.g., submitting a form).
+PUT	Updates existing resources.
+DELETE	Removes a resource from the server.
+PATCH	Partially updates a resource.
+HEAD	Similar to GET but only retrieves headers.
+🚦 Common HTTP Status Codes
+Code	Category	Meaning
+200 OK	✅ Success	Request was successful.
+201 Created	✅ Success	New resource was successfully created.
+400 Bad Request	❌ Client Error	The request was malformed.
+401 Unauthorized	❌ Client Error	Authentication is required.
+403 Forbidden	❌ Client Error	The server refuses to fulfill the request.
+404 Not Found	❌ Client Error	The requested resource was not found.
+500 Internal Server Error	❌ Server Error	The server encountered an unexpected condition.
+503 Service Unavailable	❌ Server Error	The server is temporarily unavailable.
+🚀 Summary
+HTTP is unencrypted, whereas HTTPS is secure and encrypted.
+HTTP requests contain a method, headers, and an optional body.
+Responses include a status code, headers, and a body.
+Understanding HTTP methods and status codes is key to debugging web applications! 
