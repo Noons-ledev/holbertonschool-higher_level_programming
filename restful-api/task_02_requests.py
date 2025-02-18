@@ -5,9 +5,15 @@ This module will introduce the requests methods
 import requests
 import csv
 from flask import Flask, jsonify
+"""
+My import documentation
+"""
 
 
 def fetch_and_print_posts():
+    """
+    this function is used to implement a get request and format to JSON
+    """
     response = requests.get('https://jsonplaceholder.typicode.com/posts')
     if response.status_code == 200:
         posts = response.json()
@@ -19,6 +25,10 @@ def fetch_and_print_posts():
 
 
 def fetch_and_save_posts():
+    """
+    This function is used to implement a get request
+    and if it worked, save the content in a csv file with columns (dictwriter)
+    """
     response = requests.get('https://jsonplaceholder.typicode.com/posts')
     if response.status_code == 200:
         posts = response.json()
