@@ -39,6 +39,8 @@ class NeuralRequest(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(object).encode())
         else:
             self.send_response(404)
+            self.send_header("Content-Type", "text/plain")
+            self.end_headers()
             self.wfile.write("Endpoint not found.".encode())
 
 
