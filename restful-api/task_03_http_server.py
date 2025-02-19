@@ -48,4 +48,3 @@ if __name__ == '__main__':
     PORT = 8000
     server = HTTPServer(("", PORT), NeuralRequest)
     server.serve_forever()
-    server.server_close()
