@@ -41,10 +41,9 @@ class NeuralRequest(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write("Endpoint not found.".encode())
+            self.wfile.write("Endpoint not found".encode())
 
 
-if __name__ == '__main__':
-    PORT = 8000
-    server = HTTPServer(("", PORT), NeuralRequest)
-    server.serve_forever()
+PORT = 8000
+server = HTTPServer(("", PORT), NeuralRequest)
+server.serve_forever()
