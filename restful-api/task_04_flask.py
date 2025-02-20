@@ -44,11 +44,10 @@ def UserInfo(username):
     Method doc
     """
     user = users.get(username)
-    if user is not None:
-        user['username'] = username
+    if user:
         return jsonify(user)
     else:
-        str = {'error': "User not found"}
+        str = {'error': "User not found"}, 404
         return jsonify(str)
 
 
