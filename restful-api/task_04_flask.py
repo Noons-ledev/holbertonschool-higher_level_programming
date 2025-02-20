@@ -63,7 +63,7 @@ def AddUser():
     response = {"message": "User added", "user": data}
     user_name = data['username']
     users[user_name] = data
-    return jsonify(response)
+    return jsonify(response), 201
 
 
 if __name__ == "__main__":
