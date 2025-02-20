@@ -8,8 +8,7 @@ So first we need the Flask class
 """
 
 app = Flask(__name__)
-users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"},
-         "jone": {"name": "Jone", "age": 28, "city": "Los Angeles"}}
+users = {}
 
 
 @app.route('/')
