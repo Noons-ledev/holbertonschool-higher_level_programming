@@ -26,7 +26,7 @@ def data():
 
 @app.route('/status')
 def status():
-    return "<p>Ok</p>"
+    return "<p>OK</p>"
 
 
 @app.route('/users/<username>')
