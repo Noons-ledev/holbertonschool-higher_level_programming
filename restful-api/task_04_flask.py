@@ -43,8 +43,9 @@ def UserInfo(username):
 @app.route('/add_user', methods=['POST'])
 def AddUser():
     data = request.get_json()
-    if data['username'] is None:
-        return jsonify({"error": "Username is required"})
+    data_name = data.get('username')
+    if not data_name:
+        return jsonify({"error": "Username is required"}), 400
     response = {"message": "User added", "user": data}
     user_name = data['username']
     users[user_name] = data
