@@ -13,11 +13,17 @@ users = {}
 
 @app.route('/')
 def home():
+    """
+    Method doc
+    """
     return "Welcome to the Flask API!"
 
 
 @app.route('/data')
 def data():
+    """
+    Method doc
+    """
     mylist = []
     for key in users:
         mylist.append(key)
@@ -26,11 +32,17 @@ def data():
 
 @app.route('/status')
 def status():
+    """
+    Method doc
+    """
     return "OK"
 
 
 @app.route('/users/<username>')
 def UserInfo(username):
+    """
+    Method doc
+    """
     user = users.get(username)
     if user is not None:
         user['username'] = username
@@ -42,6 +54,9 @@ def UserInfo(username):
 
 @app.route('/add_user', methods=['POST'])
 def AddUser():
+    """
+    Method doc
+    """
     data = request.get_json()
     data_name = data.get('username')
     if not data_name:
