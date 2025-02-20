@@ -47,8 +47,8 @@ def UserInfo(username):
     if user:
         return jsonify(user)
     else:
-        str = {'error': "User not found"}, 404
-        return jsonify(str)
+        str = {'error': "User not found"}
+        return jsonify(str), 404
 
 
 @app.route('/add_user', methods=['POST'])
@@ -62,7 +62,12 @@ def AddUser():
         return jsonify({"error": "Username is required"}), 400
     response = {"message": "User added", "user": data}
     user_name = data['username']
-    users[user_name] = data
+    users[user_name] = {
+        'username': user_name,
+        'name': data.get('name'),
+        'city' : data.get('city'),
+        'age': data.get('age')
+    }
     return jsonify(response), 201
 
 
