@@ -40,16 +40,23 @@ def verify_password(username, password):
 
 @app.route('/login', methods=['POST'])
 def login():
-    user_name = request.json.get('username')
-    user_pwd = request.json.get('password')
+    data = request.get_json()
+
+    if not data or 'username' not in data or 'password' not in data:
+        return jsonify({'error': 'Missing username or password'}), 400
+
+    user_name = data.get('username')
+    user_pwd = data.get('password')
+
     islogged = verify_password(user_name, user_pwd)
-    if islogged is not None:
+    if islogged:
         access_token = create_access_token(identity=user_name,
-                                           additional_claims={
-                                               'role':
-                                                   users[user_name]['role']})
+                                           additional_claims={'role':
+                                                              users[user_name]
+                                                              ['role']})
         return jsonify(access_token=access_token)
-    return jsonify({'error':'Wrong credentials' }), 401
+
+    return jsonify({'error': 'Wrong credentials'}), 401
 
 
 @app.route('/jwt-protected')
@@ -74,17 +81,21 @@ def is_admin():
 def handle_unauthorized_error(err):
     return jsonify({"error": "Missing or invalid token"}), 401
 
+
 @jwt.invalid_token_loader
 def handle_invalid_token_error(err):
     return jsonify({"error": "Invalid token"}), 401
+
 
 @jwt.expired_token_loader
 def handle_expired_token_error(err):
     return jsonify({"error": "Token has expired"}), 401
 
+
 @jwt.revoked_token_loader
 def handle_revoked_token_error(err):
     return jsonify({"error": "Token has been revoked"}), 401
+
 
 @jwt.needs_fresh_token_loader
 def handle_needs_fresh_token_error(err):
