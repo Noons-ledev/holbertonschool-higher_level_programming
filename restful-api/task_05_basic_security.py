@@ -35,16 +35,15 @@ def verify_password(username, password):
        check_password_hash(users[username]['password'], password):
         return username
     else:
-        return None, 401
+        return None
 
 
 @app.route('/login', methods=['POST'])
-@auth.login_required
 def login():
     user_name = request.json.get('username')
     user_pwd = request.json.get('password')
     islogged = verify_password(user_name, user_pwd)
-    if islogged is not None:
+    if islogged is user_name:
         access_token = create_access_token(identity=user_name,
                                            additional_claims={
                                                'role':
