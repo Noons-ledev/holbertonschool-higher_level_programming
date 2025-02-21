@@ -43,13 +43,13 @@ def login():
     user_name = request.json.get('username')
     user_pwd = request.json.get('password')
     islogged = verify_password(user_name, user_pwd)
-    if islogged is user_name:
+    if islogged is not None:
         access_token = create_access_token(identity=user_name,
                                            additional_claims={
                                                'role':
                                                    users[user_name]['role']})
         return jsonify(access_token=access_token)
-    return 401
+    return jsonify({'error':'Wrong credentials' }), 401
 
 
 @app.route('/jwt-protected')
