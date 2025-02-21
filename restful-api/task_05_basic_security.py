@@ -3,12 +3,14 @@
 We will use flask with jwt werkzeug ans flaskhttpauth
 """
 from flask import Flask, jsonify, request
-import jwt
 from flask_jwt_extended import JWTManager, \
     create_access_token, jwt_required, get_jwt_identity, get_jwt
-import requests
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import check_password_hash, generate_password_hash
+"""
+Documentation
+"""
+
 
 app = Flask(__name__)
 jwt = JWTManager(app)
@@ -103,4 +105,4 @@ def handle_needs_fresh_token_error(err):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run()
