@@ -11,8 +11,12 @@ if __name__ == "__main__":
                            passwd=sys.argv[2],
                            db=sys.argv[3],
                            port=3306)
+
     cur = conn.cursor()
-    cur.execute("SELECT * FROM cities ORDER BY id ASC")
+    query = "SELECT cities.id, cities.name, states.name FROM cities.id \
+            JOIN states ON cities.state_id = states.id \
+            ORDER BY cities.id ASC;"
+    cur.execute(query)
     states = cur.fetchall()
     for state in states:
         print(state)
