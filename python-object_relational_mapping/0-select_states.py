@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+DOCSTRING MANDATORY
+"""
 import MySQLdb
 import sys
 
