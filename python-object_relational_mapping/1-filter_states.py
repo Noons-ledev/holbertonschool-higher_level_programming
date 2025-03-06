@@ -13,13 +13,13 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host='localhost', user=mysql_username,
                          passwd=mysql_username,
                          db=database_name, port=3306)
-    cursor = db.cursor()
+    cur = db.cursor()
 
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%'"
-                   "ORDER BY id ASC;")
-    tables = cursor.fetchall()
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY"
+                "'N%' ORDER BY id ASC;")
+    tables = cur.fetchall()
     for table in tables:
         print(table)
 
-    cursor.close()
+    cur.close()
     db.close()
