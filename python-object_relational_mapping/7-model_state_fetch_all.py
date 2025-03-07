@@ -10,14 +10,17 @@ if __name__ == '__main__':
     from model_state import Base, State
     import sys
 
-    engine = create_engine('mysql+mysqldb\
-                           ://{}:{} @localhost/{}'.format(sys.argv[1],
-                                                          sys.argv[2],
-                                                          sys.argv[3]))
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(
+            sys.argv[1],
+            sys.argv[2],
+            sys.argv[3]
+        ),
+    )
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.execute(text("SELECT * from states ORDER BY id"))
-    for id, name in result:
-        print("{}: {}".format(id, name))
+    states = session.query(State).order_by(State.id).all()
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
