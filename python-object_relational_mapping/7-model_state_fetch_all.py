@@ -14,5 +14,5 @@ if __name__ == '__main__':
     session = Session()
 
     result = session.execute(text("SELECT * from states"))
-    for row in result:
-        print(row)
+    for id, name in result:
+        print("{}: {}".format(id, name))
