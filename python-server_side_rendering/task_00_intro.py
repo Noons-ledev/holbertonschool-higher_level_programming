@@ -1,43 +1,36 @@
-#!usr/bin/python3
-"""
-This module is used to generate invitation thanks to a template, using a list
-"""
-import os
-"""
-Definition of generate_invitations function
-"""
+#!/usr/bin/python3
+"""Module used to generate invitations from a template file"""
+from os.path import exists
 
 
-def generate_invitations(template_content, attendees):
-    """
-    My base function
-    """
+def generate_invitations(template, attendees):
 
-    if not isinstance(template_content, str):
-        raise TypeError("template must be a string!")
-    if not isinstance(attendees, list) or\
-            not all(isinstance(element, dict) for element in attendees):
-        raise TypeError("attendees must be a list of dictionnaries")
-    if len(template_content) == 0 or len(attendees) == 0:
-        raise ValueError("No empty arguments please")
+    if not exists("template.txt"):
+        raise FileNotFoundError("template.txt not found")
 
-    i = 1
+    if not isinstance(template, str):
+        print("Error: Template must be a string")
+        return
 
-    for attendee in attendees:
-        invitation = template_content
-        invitation = invitation.replace
-        ("{name}", str(attendee.get("name", "N/A")))
-        invitation = invitation.replace
-        ("{event_title}", str(attendee.get("event_title", "N/A")))
-        invitation = invitation.replace
-        ("{event_date}", str(attendee.get("event_date", "N/A")))
-        invitation = invitation.replace
-        ("{event_location}", str(attendee.get("event_location", "N/A")))
+    if not isinstance(attendees, list):
+        print("Error: Attendees must be a list")
+        return
 
-        if os.path.exists(f"output_{i}.txt"):
-            raise FileExistsError("File already exists")
+    if not template:
+        print("Error: Template can't be empty")
+        return
 
-        with open(f"output_{i}.txt", 'w', encoding='UTF-8') as file:
-            file.write(invitation)
+    if not attendees:
+        print("Error: Attendees list can't be empty")
+        return
 
-        i += 1
+    for i, attendee in enumerate(attendees, start=1):
+        invitations = template.format(
+            name=attendee.get("name", "N/A"),
+            event_title=attendee.get("event_title", "N/A"),
+            event_date=attendee.get("event_date", "N/A"),
+            event_location=attendee.get("event_location", "N/A"),)
+        filename = "output_{}.txt".format(i)
+
+        with open(filename, "w", encoding="utf-8") as file:
+            file.write(invitations)
