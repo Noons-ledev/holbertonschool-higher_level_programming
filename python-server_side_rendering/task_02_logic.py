@@ -23,8 +23,8 @@ def contact():
 def items():
     with open('./templates/items.json', 'r') as file:
         data = json.load(file)
-        items_data = data.get("items", [])
-        return render_template('items.html', items=items_data)
+    items_data = data.get("items", [])
+    return render_template('items.html', items=items_data)
     
 
 
